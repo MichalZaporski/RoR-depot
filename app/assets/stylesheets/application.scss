@@ -13,37 +13,38 @@
  *= require_tree .
  *= require_self
  */
-
-body{
+body {
   margin: 0;
   padding: 0;
 }
-header.main{
+
+header.main {
   text-align: center;
-  @media (min-width: 30em){
+  @media (min-width: 30em) {
     text-align: left;
   }
   background: #282;
   margin: 0;
-  h1{
+
+  h1 {
     display: none;
   }
 }
-.content{
+
+.content {
   margin: 0;
   padding: 0;
-
   display: flex;
   display: -webkit-flex;
   flex-direction: column; // mobile is horizontally laid out
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-
   @media (min-width: 30em) {
     flex-direction: row; // desktop is vertically laid out
     -webkit-box-orient: horizontal;
   }
-  nav{
+
+  nav {
     padding-bottom: 1em;
     background: #141;
     text-align: center; // mobile has centered nav
@@ -51,43 +52,66 @@ header.main{
       text-align: left; // desktop nav is left-aligned
       padding: 1em; // and needs more padding
     }
-    ul{
+
+    ul {
       list-style: none;
       margin: 0;
       padding: 0;
       @media (min-width: 30em) {
         padding-right: 1em; // give desktop some extra space
       }
-      li{
+
+      li {
         margin: 0;
         padding: 0.5em;
         text-transform: uppercase;
         letter-spacing: 0.354em;
-        a{
+
+        a {
           color: #bfb;
           text-decoration: none;
         }
+
         a:hover {
           background: none;
           color: white;
         }
       }
     }
-    p{
+
+    p {
       color: white;
     }
   }
-  main{
+
+  main {
     padding: 0.5em;
   }
 }
-.notice, #notice {
-background: #ffb;
-border-radius: 0.5em;
-border: solid 0.177em #882;
-color: #882;
-font-weight: bold;
-margin-bottom: 1em;
-padding: 1em 1.414em;
-text-align: center;
+
+#notice,
+.notice {
+  background: #ffb;
+  border-radius: 0.5em;
+  border: solid 0.177em #882;
+  color: #882;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 1em 1.414em;
+  text-align: center;
+}
+
+#cart {
+  article {
+    h2 {
+      margin-top: 0;
+    }
+    background: white;
+    border-radius: 0.5em;
+    margin: 1em;
+    padding: 1.414em;
+    @media (min-width: 30em) {
+      margin: 0; // desktop doesn't need this margin
+    }
+  }
 }
