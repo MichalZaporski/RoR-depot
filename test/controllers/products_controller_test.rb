@@ -2,7 +2,7 @@ require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:one)
+    @product = products(:php)
     @title = "The great book #{rand(1000)}"
   end
 
@@ -41,7 +41,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "can't delete product in cart" do
     assert_difference('Product.count', 0) do
-      delete product_url(products(:two))
+      delete product_url(products(:js))
     end
 
     assert_redirected_to products_url
@@ -53,5 +53,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to products_url
+  end
+
+  test "not logged user opens Products index" do
+    delete logout_url
+    get products_url
+    assert_redirected_to login_url
   end
 end

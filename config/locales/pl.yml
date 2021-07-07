@@ -1,0 +1,70 @@
+pl:
+  thanks: "Dziękujemy za zamówienie"
+  layouts:
+    application:
+      title: "Pragmatic - książki"
+      home: "Start"
+      questions: "Pytania"
+      news: "Nowości"
+      contact: "Kontakt"
+  store:
+    index:
+      title_html: "Twój pragmatyczny katalog"
+      add_html: "Dodaj do koszyka"
+  carts:
+    cart:
+      title: "Twój koszyk"
+      empty: "Opróżnij koszyk"
+      checkout: "Zamówienie"
+  line_items:
+    line_item:
+      delete: "Usuń"
+  number:
+    currency:
+      format:
+        unit: "$US"
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format: "%n&nbsp;%u"
+  orders:
+    new:
+      legend: "Proszę wpisać dane"
+    form:
+      name: "Imię"
+      address: "Adres"
+      email: "E-mail"
+      pay_type: "Forma płatności"
+      pay_prompt_html: "Wybierz metodę płatności"
+      submit: "Zamów"
+      pay_types:
+        check: "Czek"
+        credit_card: "Karta kredytowa"
+        purchase_order: "Zamówienie"
+      check_pay_type:
+        routing_number: "# routingu"
+        account_number: "# konta"
+      credit_card_pay_type:
+        cc_number: "Numer karty"
+        expiration_date: "Data ważności"
+      purchase_order_pay_type:
+        po_number: "Numer"
+  activerecord:
+    errors:
+      messages:
+        inclusion: "nie znajduje się na liście"
+        blank: "nie może być puste"
+    models:
+      order: "Zamówienie"
+    attributes:
+      order:
+        address: "Adres"
+        name: "Imię"
+        email: "E-mail"
+        pay_type: "Forma płatności"
+  errors:
+    template:
+      body: "Wystąpiły problemy z następującymi polami:"
+      header:
+        one: "1 błąd iniemożliwił zapisanie formularza %{model}"
+        other: "%{count} błędy uniemożliwiły zapisanie formularza %{model}"

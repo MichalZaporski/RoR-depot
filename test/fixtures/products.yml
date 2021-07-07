@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString123
+php:
+  title: php programming
   description: MyText
   image_url: lorem.jpg
   price: 9.99
 
-two:
-  title: MyString123
+js:
+  title: js programming
   description: MyText
   image_url: lorem.jpg
   price: 9.99

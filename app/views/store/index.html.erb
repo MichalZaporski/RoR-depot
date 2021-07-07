@@ -1,9 +1,9 @@
 <% if notice %>
-  <aside id="notice"><%=notice %></aside>
+<aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>Your Pragmatc Catalog
-  <% if session[:counter] > 5 %>
+<h1><%= t('.title_html') %>
+  <% if session[:counter] && session[:counter] > 5 %>
     (You have been here
    <%= pluralize(session[:counter], "time")%>)
   <% end %>
@@ -13,15 +13,19 @@
   <% cache @products do %>
     <% @products.each do |product| %>
       <% cache product do %>
+        <% if product == @product %>
+        <li class="line-item-highlight">
+        <% else %>
         <li>
-          <%= image_tag(product.image_url)  %>
+        <% end %>
+          <%= link_to image_tag(product.image_url), line_items_path(product_id: product), method: :post, remote: true %>
           <h2>  <%= product.title %>  </h2>
           <p>
             <%= sanitize(product.description) %>
           </p>
           <div class="price">
             <%= number_to_currency product.price%>
-            <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+            <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale), remote: true %>
           </div>
         </li>
       <% end %>

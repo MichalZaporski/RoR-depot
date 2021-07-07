@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ProductsTest < ApplicationSystemTestCase
   setup do
-    @product = products(:one)
+    @product = products(:php)
   end
 
   test "visiting the index" do
@@ -17,7 +17,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
     fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: "Karel The Robot in a Nutshell"
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -31,7 +31,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
     fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: "nowy tytuł"
     click_on "Update Product"
 
     assert_text "Product was successfully updated"
@@ -46,4 +46,5 @@ class ProductsTest < ApplicationSystemTestCase
 
     assert_text "Product was successfully destroyed"
   end
+
 end

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .carts {
+
   table {
     border-collapse: collapse;
   }
@@ -51,5 +52,8 @@
 
   input[type="submit"]:hover {
     background-color: #992;
+  }
+  form {
+    display: inline-block;
   }
 }

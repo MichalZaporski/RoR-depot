@@ -1,0 +1,8 @@
+<h3>Dear <%= @order.name %></h3>
+<p>Thank you for your recent order from the Pragmatic Store.</p>
+<p>You ordered the following items:</p>
+<table>
+  <tr><th>Qty</th><th>Description</th><th>Price</th></tr>
+  <%= render partial: 'line_items/line_item_mail', locals: { order: @order } %>
+</table>
+<p>We'll send you a separate email when your order ships.</p>

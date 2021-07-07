@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :line_items, dependent: :destroy #koszyk ma wiele itemow, a po usunieciu koszyka itemy usuwaja sie
+  has_many :line_items, dependent: :destroy # koszyk ma wiele itemow, a po usunieciu koszyka itemy usuwaja sie
 
   def add_product(product)
     current_item = line_items.find_by(product_id: product.id)
