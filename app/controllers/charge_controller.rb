@@ -4,8 +4,7 @@ class ChargeController < ApplicationController
   before_action :set_swp_params
   before_action :set_swp_items
 
-  def index
-  end
+  def index; end
 
   private
 
