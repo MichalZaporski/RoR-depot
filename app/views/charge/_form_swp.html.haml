@@ -1,0 +1,16 @@
+= form_with url: 'https://sandbox.espago.com/secure_web_page', method: :post, local: true do |form|
+  = form.hidden_field :api_version, value: @swp_api_version
+  = form.hidden_field :app_id, value: @swp_app_id
+  = form.hidden_field :kind, value: @swp_kind
+  = form.hidden_field :session_id, value: @swp_session_id
+  = form.hidden_field :amount, value: @swp_amount
+  = form.hidden_field :currency, value: @swp_currency
+  = form.hidden_field :title, value: @swp_title
+  = form.hidden_field :description, value: @swp_description
+  = form.hidden_field :ts, value: @swp_ts
+  = form.hidden_field :checksum, value: @swp_checksum
+  - @swp_items.each_with_index do |item, index|
+    = form.hidden_field  "shopping_cart_items[#{index}][description]", value: item[:description]
+    = form.hidden_field "shopping_cart_items[#{index}][quantity]", value: item[:quantity]
+    = form.hidden_field "shopping_cart_items[#{index}][value]", value: item[:value]
+  = form.submit 'Security Web Page'

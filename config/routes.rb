@@ -11,10 +11,16 @@ Rails.application.routes.draw do
     get :who_bought, on: :member
   end
 
+  controller :payment_callbacks do
+    get 'payment_callbacks/negative_response'
+    get 'payment_callbacks/positive_response'
+  end
+
   scope '(:locale)' do
     resources :orders
     resources :line_items
     resources :carts
+    get 'charge/index'
     root 'store#index', as: 'store_index', via: :all
   end
 
