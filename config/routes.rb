@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :line_items
     resources :carts
     get 'charge/index'
+    post 'charge/charge_client'
     root 'store#index', as: 'store_index', via: :all
   end
 

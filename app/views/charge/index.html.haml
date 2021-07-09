@@ -1,3 +1,7 @@
 %p Select payment method:
 = render 'form_swp'
-%p iFrame
+%p or
+= button_tag 'iFrame', type: :button, onclick: "showEspagoFrame()"
+= render 'form_iframe'
+%script{src: "https://js.espago.com/espago-1.2.js"}
+%script{async: "", "data-button" => "Pay", "data-id" => "EspagoFrameScript", "data-key" => "jUPT2vHJiP8nUeK2a52F", "data-live" => "false", src: "https://js.espago.com/iframe-1.0.js"}
