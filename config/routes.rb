@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
 
   controller :payment_callbacks do
-    get 'payment_callbacks/negative_response'
-    get 'payment_callbacks/positive_response'
+    get 'payment_callbacks/negative_response', as: 'negative_response'
+    get 'payment_callbacks/positive_response', as: 'positive_response'
   end
 
   scope '(:locale)' do
