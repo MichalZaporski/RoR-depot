@@ -12,6 +12,8 @@ class ChargeController < ApplicationController
     response_hash = JSON.parse response.as_json['body']
     security_url = check_redirect(response_hash)
 
+    # :TODO OBSLUGA PAY ID Z RESPONSE PRZED PRZEKIEROWANIEM
+
     if security_url
       redirect_to security_url
     elsif response_hash['state'] == 'executed'
