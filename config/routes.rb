@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     get 'payment_callbacks/positive_response', as: 'positive_response'
   end
 
+  controller :payments do
+    post 'payments/collect_payment'
+  end
+
   scope '(:locale)' do
     resources :orders
     resources :line_items

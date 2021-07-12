@@ -12,7 +12,7 @@ class ChargeController < ApplicationController
     response_hash = JSON.parse response.as_json['body']
     security_url = check_redirect(response_hash)
 
-    # :TODO OBSLUGA PAY ID Z RESPONSE PRZED PRZEKIEROWANIEM
+    Payment.new(payment_id: response_hash['id'], order_id: @order.id).save
 
     if security_url
       redirect_to security_url
@@ -34,6 +34,7 @@ class ChargeController < ApplicationController
     @amount = '%.2f' % @order.total_price
     @currency = ESP_VAL[:currency]
     @description = "Name: #{@order.name} Address: #{@order.address}"
+    @title = "Order ID: #{@order.id}"
   end
 
   def set_swp_params
@@ -42,7 +43,6 @@ class ChargeController < ApplicationController
     @swp_kind = 'sale'
     @swp_session_id = SecureRandom.uuid
     @swp_currency = ESP_VAL[:currency]
-    @swp_title = "Order ID: #{@order.id}"
     @swp_ts = Time.now.strftime '%s'
     @swp_checksum = ::Digest::MD5.hexdigest "#{@swp_app_id}|#{@swp_kind}|#{@swp_session_id}|#{@amount}|#{@currency}|#{@swp_ts}|#{ESP_VAL[:checksum_key]}"
   end
@@ -62,7 +62,7 @@ class ChargeController < ApplicationController
       req.headers['Authorization'] = "Basic #{auth_encoded}"
       req.headers['Accept'] = 'application/vnd.espago.v3+json'
       req.headers['Content-Type'] = 'application/json'
-      req.body = { amount: @amount.to_f, currency: @currency, card: params[:card_token], description: @description }.to_json
+      req.body = { amount: @amount.to_f, currency: @currency, card: params[:card_token], description: @title }.to_json
     end
   end
 

@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @payments = @order.payments
   end
 
   # GET /orders/new

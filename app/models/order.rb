@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
+  has_many :payments
 
   enum pay_type: {
     "Check" => 0,
@@ -19,5 +20,9 @@ class Order < ApplicationRecord
 
   def total_price
     line_items.to_a.sum(&:total_price)
+  end
+
+  def assign_order_paytype(type)
+    self.pay_type = type
   end
 end
