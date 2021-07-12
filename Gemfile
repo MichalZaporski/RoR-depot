@@ -56,3 +56,4 @@ gem 'i18n-js'
 gem 'haml'
 gem 'haml-rails'
 gem 'faraday'
+gem 'simplecov', group: :test
