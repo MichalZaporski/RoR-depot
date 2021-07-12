@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   controller :payments do
-    post 'payments/collect_payment'
+    post 'payments/collect_payment', as: 'collect_payment'
   end
 
   scope '(:locale)' do
