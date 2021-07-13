@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
   end
 
   def set_payment_params
-    @payment_params = params.require %i[description id state subject]
+    @payment_params = params.require %i[description id state]
   end
 
   def set_order
