@@ -1,15 +1,15 @@
 = form_with url: 'https://sandbox.espago.com/secure_web_page', method: :post, local: true do |form|
-  = form.hidden_field :api_version, value: @swp_api_version
-  = form.hidden_field :app_id, value: @swp_app_id
-  = form.hidden_field :kind, value: @swp_kind
-  = form.hidden_field :session_id, value: @swp_session_id
-  = form.hidden_field :amount, value: @amount
-  = form.hidden_field :currency, value: @currency
-  = form.hidden_field :title, value: @title
-  = form.hidden_field :description, value: @description
-  = form.hidden_field :ts, value: @swp_ts
-  = form.hidden_field :checksum, value: @swp_checksum
-  - @swp_items.each_with_index do |item, index|
+  = form.hidden_field :api_version, value: @payment_params.swp_api_version
+  = form.hidden_field :app_id, value: @payment_params.swp_app_id
+  = form.hidden_field :kind, value: @payment_params.swp_kind
+  = form.hidden_field :session_id, value: @payment_params.swp_session_id
+  = form.hidden_field :amount, value: @payment_params.amount
+  = form.hidden_field :currency, value: @payment_params.currency
+  = form.hidden_field :title, value: @payment_params.title
+  = form.hidden_field :description, value: @payment_params.user_description
+  = form.hidden_field :ts, value: @payment_params.swp_ts
+  = form.hidden_field :checksum, value: @payment_params.swp_checksum
+  - @payment_params.swp_items.each_with_index do |item, index|
     = form.hidden_field  "shopping_cart_items[#{index}][description]", value: item[:description]
     = form.hidden_field "shopping_cart_items[#{index}][quantity]", value: item[:quantity]
     = form.hidden_field "shopping_cart_items[#{index}][value]", value: item[:value]

@@ -1,0 +1,5 @@
+%tr{class: ('line-item-highlight' if line_item == @current_item)}
+  %td.quantity= line_item.quantity
+  %td= line_item.product.title
+  %td.price= number_to_currency(line_item.total_price)
+  %td= button_to t('.delete'), line_item, method: :delete, remote: true, locale: I18n.locale
